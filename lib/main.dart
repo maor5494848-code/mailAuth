@@ -4,20 +4,37 @@ import 'package:flutter/material.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp();
-  runApp(const MainApp());
+
+  runApp(MaterialApp(
+    home: Home(),
+  ));
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text('branch test'),
-        ),
+      appBar: AppBar(
+        title: Text('This is a title'),
+        centerTitle: true,
+        backgroundColor: Colors.orange,
+      ), 
+      body: Center(
+        child: Text(
+          'I am the body of the app',
+          style: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Cursive',
+          ),
+          ),
       ),
-    );
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Text('click'),
+      ),
+    ),
+  );
   }
 }
